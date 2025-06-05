@@ -1,7 +1,13 @@
+html,
 body {
     font-family: 'Noto Sans TC', sans-serif;
     background-color: var(--color-bg-light);
-    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
 }
 
 ol,
@@ -13,6 +19,11 @@ ul {
 
 a {
     text-decoration: none
+}
+
+img,
+svg {
+    max-width: 100%
 }
 
 button:focus {
@@ -31,11 +42,15 @@ button:focus {
     box-shadow: none;
 }
 
+input[type="checkbox"] {
+    accent-color: var(--color-accent-brown);
+}
 
 :root {
     --color-primary-yellow: #FFE992;
     --color-accent-brown: #6E501F;
     --color-bg-light: #FFFEF7;
+    --color-bg-card: #FFF8DA;
 
     --color-primary-green: #A8B5A2;
     --color-accent-mauve: #A1887F;
@@ -56,6 +71,43 @@ button:focus {
     --font-20: 1.25rem;
     --font-24: 1.5rem;
     --font-48: 3rem;
+}
+
+.font-title {
+    color: var(--color-font-black);
+    font-size: var(--font-24);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.font-subtitle {
+    color: var(--color-font-gray);
+    font-size: var(--font-16);
+    margin-bottom: 1.5rem;
+}
+
+.font-brown {
+    color: var(--color-accent-brown);
+    font-weight: 400;
+}
+
+.font-black {
+    color: var(--color-font-black);
+    font-weight: 400;
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.form-control::placeholder {
+    font-size: var(--font-16);
+    color: var(--color-light-gray);
+}
+
+.form-control:focus {
+    border: 2px solid var(--color-accent-brown);
+    box-shadow: none;
 }
 
 .btn-custom-round {
@@ -81,6 +133,7 @@ button:focus {
     width: 100%;
     max-width: 327px;
     padding: 12px;
+    margin: 1.5rem 0;
     border: none;
 }
 
@@ -128,13 +181,6 @@ button:focus {
     border: solid 1px var(--color-accent-brown);
     padding: 0px 10px !important;
 }
-
-
-.form-control::placeholder {
-    font-size: var(--font-16);
-    color: var(--color-light-gray);
-}
-
 
 #mobileMenu {
     position: fixed;
@@ -379,28 +425,37 @@ button:focus {
     }
 }
 
+
 /* login */
+/* register_simple */
+
+.simple-form-top h2 {
+    color: var(--color-font-black);
+    font-weight: 300;
+    line-height: 150%;
+    letter-spacing: 5%;
+    text-align: center;
+    margin: 0;
+}
+
+.form-container {
+    padding: 40px 24px;
+}
 
 .login-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.login-container .login-logo {
-    margin-bottom: 50px;
-}
-
-.login-container .form-box {
-    width: 100%;
     max-width: 400px;
 }
 
-.login-container .form-control {
-    border-radius: 20px;
+.simple-form-container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding-top: 44px;
+    padding-bottom: 40px;
+}
+
+.simple-form-header-img {
+    width: 100%;
+    height: auto;
 }
 
 .password-icon {
@@ -413,38 +468,11 @@ button:focus {
     cursor: pointer;
 }
 
-.login-container .forgot-password,
-.login-container .register-link {
-    color: var(--color-accent-brown);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.login-container .welcome-text {
-    font-size: var(--font-24);
-    font-weight: 700;
-    margin-top: 50px;
-    margin-bottom: 24px;
-}
-
 /* rule */
 .rule-container-box {
     max-width: 700px;
     margin: 0 auto;
     padding: 40px 24px;
-}
-
-.rule-title {
-    color: var(--color-font-black);
-    font-weight: 700;
-    font-size: var(--font-24);
-    margin-bottom: 24px;
-}
-
-.rule-subtitle {
-    font-size: var(--font-16);
-    color: var(--color-font-gray);
-    margin-bottom: 24px;
 }
 
 .rule-terms-box {
@@ -483,23 +511,6 @@ button:focus {
     padding: 40px 20px;
 }
 
-.register-title {
-    font-weight: 700;
-    font-size: var(--font-24);
-    margin-bottom: 8px;
-}
-
-.register-subtitle {
-    font-size: var(--font-14);
-    color: var(--color-font-gray);
-    margin-bottom: 24px;
-}
-
-.register-form-control,
-.register-select {
-    border-radius: 20px;
-}
-
 .register-password-wrapper {
     position: relative;
 }
@@ -509,7 +520,7 @@ button:focus {
 }
 
 .register-form-title {
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
@@ -532,4 +543,88 @@ button:focus {
     .last-group {
         margin-bottom: 20px;
     }
+}
+
+/* register_result */
+.verify-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.verify-top {
+    background-color: #FFDFC4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.verify-image {
+    width: 295px;
+    height: 346px;
+}
+
+.verify-bottom {
+    background-color: var(--color-bg-light);
+    padding: 40px 20px;
+    margin: 0 auto;
+}
+
+.verify-text-box {
+    min-width: 327px;
+    text-align: center;
+}
+
+@media (max-width: 1199.98px) {
+    .verify-top {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .verify-text-box {
+        width: 327px;
+        text-align: left;
+    }
+}
+
+
+
+@media (max-width: 767.98px) {
+    .simple-form-container {
+        padding-top: 0px;
+    }
+}
+
+/* member_password_forget */
+
+.reset-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 40%;
+    max-width: 600px;
+    min-height: 60vh;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.reset-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-card);
+    border-radius: 20px;
+    padding: 30px 48px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1199.98px) {
+    .reset-container {
+        padding: 30px 20px;
+    }
+
+    .reset-card {
+        padding: 30px 24px;
+    }
+
 }
