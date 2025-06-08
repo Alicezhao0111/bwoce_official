@@ -29,3 +29,12 @@ document.querySelectorAll(".toggle-password").forEach((icon) => {
     icon.src = type === "text" ? "./images/login/eye_open_icon.svg" : "./images/login/eye_icon.svg";
   });
 });
+
+function showModal(message) {
+  document.getElementById("modalMessage").innerHTML = message;
+  document.getElementById("globalModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("globalModal").style.display = "none";
+}
