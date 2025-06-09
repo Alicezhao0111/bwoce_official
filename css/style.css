@@ -112,6 +112,7 @@ input[type="checkbox"] {
 
 .btn-custom-round {
     background-color: var(--color-primary-yellow);
+    color: var(--color-font-black);
     border-radius: 20px;
     font-weight: 700;
 }
@@ -519,6 +520,16 @@ input[type="checkbox"] {
     margin-bottom: 20px;
 }
 
+.rule-terms-box ol ol {
+  padding-left: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+.rule-terms-box ol ol ol {
+  padding-left: 0.8em;
+  margin-bottom: 0.5em;
+}
+
 .rule-agreement {
     font-size: var(--font-16);
     display: flex;
@@ -568,13 +579,27 @@ input[type="checkbox"] {
     font-size: var(--font-12);
 }
 
+.w-200 {
+  width: 200px;
+}
+
 .last-group {
     margin-bottom: 40px;
 }
 
+.checkbox-grid {
+    display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+
 @media (max-width: 1199.98px) {
     .last-group {
         margin-bottom: 20px;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 

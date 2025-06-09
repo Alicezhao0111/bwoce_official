@@ -103,33 +103,31 @@
         <form id="register_form" method="post" action="">
             <div class="mb-3">
                 <div class="register-form-title">真實姓名</div>
-                <input type="text" name="name" class="form-control" placeholder="姓名" >
+                <input type="text" name="name" class="form-control" placeholder="姓名">
             </div>
             <div class="mb-3">
                 <div class="register-form-title">暱稱</div>
-                <input type="text" name="nickname" class="form-control" placeholder="暱稱" >
+                <input type="text" name="nickname" class="form-control" placeholder="暱稱">
             </div>
             <div class="mb-3">
                 <div class="register-form-title">性別</div>
-                <label class="me-3"><input type="radio" name="gender" value="male" > 男性</label>
-                <label><input type="radio" name="gender" value="female" > 女性</label>
+                <label class="me-3"><input type="radio" name="gender" value="male"> 男性</label>
+                <label><input type="radio" name="gender" value="female"> 女性</label>
             </div>
             <div class="mb-3">
                 <div class="register-form-title">出生日期</div>
-                <input type="date" name="birthday" class="form-control" >
+                <input type="date" name="birthday" class="form-control">
             </div>
             <div class="mb-3">
                 <div class="register-form-title">信箱</div>
-                <input type="email" name="email" class="form-control" placeholder="name@gmail.com"
-                    >
+                <input type="email" name="email" class="form-control" placeholder="name@gmail.com">
             </div>
             <div class="mb-3">
                 <div class="register-form-title">手機號碼</div>
-                <input type="tel" name="phone" class="form-control" placeholder="09XXXXXXXX"
-                    >
+                <input type="tel" name="phone" class="form-control" placeholder="09XXXXXXXX">
             </div>
             <div class="mb-3 d-flex gap-2">
-                <input type="text" name="city" class="form-control" placeholder="市/縣" >
+                <input type="text" name="city" class="form-control" placeholder="市/縣">
                 <input type="text" name="district" class="form-control" placeholder="區（選填）">
             </div>
             <div class="mb-3">
@@ -139,67 +137,79 @@
                 <div class="register-form-title">密碼</div>
                 <div class="register-password-wrapper">
                     <input type="password" name="password" id="password" class="form-control"
-                        placeholder="密碼" >
+                        placeholder="8-20字半形英數字組合">
                     <img src="./images/login/eye_icon.svg" class="password-icon toggle-password" alt="顯示密碼">
                 </div>
             </div>
 
             <div class="mb-3 register-password-wrapper">
-                <input type="password" name="confirmPassword" id="confirmPassword"
-                    class="form-control " placeholder="再次確認密碼" >
+                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control "
+                    placeholder="再次確認密碼">
                 <img src="./images/login/eye_icon.svg" class="password-icon toggle-password" alt="顯示密碼">
             </div>
             <div id="passwordError" class="text-danger mb-3" style="display:none;">
-                密碼輸入不一致，請重新確認
+                密碼不相符！
             </div>
             <div class="register-checkbox-group">
-                <div class="register-form-title">興趣（非必填）</div>
-                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="健身"> 健身</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="烹飪"> 烹飪</label>
+                <div class="register-form-title">興趣（非必填 可複選）</div>
+                <div class="checkbox-grid">
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="正念靜坐"> 正念靜坐</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="舒壓療癒"> 舒壓療癒</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="瑜伽"> 瑜伽</label>
                 <label class="register-checkbox-item"><input type="checkbox" name="interest" value="爬山"> 爬山</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="瑜珈"> 瑜珈</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="聽音樂"> 聽音樂</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="看電影"> 看電影</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="運動健身"> 運動健身</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="攝影"> 攝影</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="繪畫"> 繪畫</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="烹飪"> 烹飪</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="電影"> 電影</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="閱讀"> 閱讀</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="音樂"> 音樂</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="藝文活動"> 藝文活動</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="園藝"> 園藝</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="茶藝"> 茶藝</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="interest" value="插花"> 插花</label>
+                </div>
+                <label class="register-checkbox-item d-flex align-items-center gap-1">
+                    <input type="checkbox" name="interest" value="其他"> 其他
+                    <input type="text" class="form-control w-200 ms-3" name="interest_other" placeholder="">
+                </label>
+                
             </div>
             <div class="register-checkbox-group">
                 <div class="register-form-title">職能專業（非必填）</div>
-                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="健身"> 健身</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="烹飪"> 烹飪</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="爬山"> 爬山</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="瑜珈"> 瑜珈</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="聽音樂"> 聽音樂</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="看電影"> 看電影</label>
+                <div class="checkbox-grid">
+                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="企業經營與管理">
+                    企業經營與管理</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="金融理財與投資">
+                    金融理財與投資</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="文化教育與培訓">
+                    文化教育與培訓</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="醫療健康與照護">
+                    醫療健康與照護</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="skill" value="藝術創作與傳承">
+                    藝術創作與傳承</label>
+                    </div>
+                <label class="register-checkbox-item d-flex align-items-center gap-1">
+                    <input type="checkbox" name="skill" value="其他"> 其他
+                    <input type="text" class="form-control w-200 ms-3" name="skill_other" placeholder="">
+                </label>
+
             </div>
-            <div class="register-checkbox-group mb-2">
+            <div class="register-checkbox-group last-group mb-2">
                 <div class="register-form-title">目前關切的問題（非必填）</div>
-                <div class="register-form-subtitle">個人/家庭</div>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="失眠"> 失眠</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="憂鬱"> 憂鬱</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="焦慮"> 焦慮</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="寵物"> 寵物</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="烹飪"> 烹飪</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="生命意義"> 生命意義</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="健康養生"> 健康養生</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="慢老"> 慢老</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="親子"> 親子</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="家庭"> 家庭</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="樂活"> 樂活</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="紓壓療癒"> 紓壓療癒</label>
-            </div>
-            <div class="register-checkbox-group last-group">
-                <div class="register-form-subtitle">人際/社會</div>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="人際關係">
-                    人際關係</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="溝通">
-                    溝通</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="社會現象">
-                    社會現象</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="企業永續">
-                    企業永續</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="創新技術">
-                    創新技術</label>
-                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="環境氣候">
-                    環境氣候</label>
+                <!-- <div class="register-form-subtitle">個人/家庭</div> -->
+                 <div class="checkbox-grid">
+                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="身心健康管理">
+                    身心健康管理</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="家庭親子和諧">
+                    家庭親子和諧</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="職業生涯發展">
+                    職業生涯發展</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="環境保護永續">
+                    環境保護永續</label>
+                <label class="register-checkbox-item"><input type="checkbox" name="concern" value="國際趨勢新創">
+                    國際趨勢新創</label>
+                    </div>
             </div>
             <div class="form-bottom-box mt-2">
                 <button type="submit" class="btn-custom-round btn-next">註冊</button>
