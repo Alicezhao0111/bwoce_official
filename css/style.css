@@ -5,7 +5,12 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     line-height: 1.5;
 }
@@ -90,16 +95,17 @@ button:focus {
 .btn--no-outline {
     border: none;
     outline: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
 .btn--no-outline:focus,
 .btn--no-outline:active {
     outline: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-/* 原 .btn--primary btn--round 拆成兩個 modifier */
 .btn--primary {
     background-color: var(--color-primary-yellow);
     color: var(--color-text--black);
@@ -123,6 +129,26 @@ button:focus {
     border-radius: 20px;
 }
 
+.form-control::-webkit-input-placeholder {
+    font-size: var(--font-16);
+    color: var(--color-light-gray);
+}
+
+.form-control::-moz-placeholder {
+    font-size: var(--font-16);
+    color: var(--color-light-gray);
+}
+
+.form-control:-ms-input-placeholder {
+    font-size: var(--font-16);
+    color: var(--color-light-gray);
+}
+
+.form-control::-ms-input-placeholder {
+    font-size: var(--font-16);
+    color: var(--color-light-gray);
+}
+
 .form-control::placeholder {
     font-size: var(--font-16);
     color: var(--color-light-gray);
@@ -130,12 +156,20 @@ button:focus {
 
 .form-control:focus {
     border: 2px solid var(--color-accent-brown);
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
 .form-bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -176,6 +210,7 @@ input[type="checkbox"] {
     right: 15px;
     width: 20px;
     height: 20px;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -186,8 +221,14 @@ input[type="checkbox"] {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     z-index: 9999;
 }
@@ -198,6 +239,7 @@ input[type="checkbox"] {
     padding: 40px 18px 18px 22px;
     text-align: center;
     max-width: 400px;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -266,34 +308,62 @@ input[type="checkbox"] {
     padding: 12px 16px 0px 16px;
     background-color: var(--color-primary-yellow);
     color: var(--color-accent-brown);
+    -webkit-box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.1);
     box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 8px 8px;
     z-index: 1000000;
     display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-animation: slideDown 0.3s ease forwards;
     animation: slideDown 0.3s ease forwards;
 }
 
 
-@keyframes slideDown {
+@-webkit-keyframes slideDown {
     from {
+        -webkit-transform: translateY(-20px);
         transform: translateY(-20px);
         opacity: 0;
     }
 
     to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideDown {
+    from {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        -webkit-transform: translateY(0);
         transform: translateY(0);
         opacity: 1;
     }
 }
 
 .mobile-menu-active {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
     display: flex !important;
 }
 
 #mobileMenu .nav-link {
     font-size: var(--font-16);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 12px;
     border-bottom: 0.5px solid var(--color-accent-brown);
@@ -308,7 +378,9 @@ input[type="checkbox"] {
     width: 24px;
     height: 16px;
     position: relative;
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
+    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
@@ -322,7 +394,9 @@ input[type="checkbox"] {
     border-radius: 9px;
     opacity: 1;
     left: 0;
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
 }
 
@@ -340,6 +414,7 @@ input[type="checkbox"] {
 
 .hamburger.open span:nth-child(1) {
     top: 7px;
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
@@ -349,6 +424,7 @@ input[type="checkbox"] {
 
 .hamburger.open span:nth-child(3) {
     top: 7px;
+    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
 
@@ -424,6 +500,7 @@ input[type="checkbox"] {
     left: 0;
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     z-index: 0;
 }
@@ -506,7 +583,11 @@ input[type="checkbox"] {
 
 .rule__agreement {
     font-size: var(--font-16);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-bottom: 30px;
 }
@@ -554,14 +635,25 @@ input[type="checkbox"] {
 
 /* register_result */
 .verify {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 .verify__header {
     background-color: #FFDFC4;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 80px 20px;
 }
@@ -585,8 +677,15 @@ input[type="checkbox"] {
 /* member_password_forget */
 
 .reset {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     min-width: 40%;
     max-width: 600px;
@@ -596,7 +695,12 @@ input[type="checkbox"] {
 }
 
 .reset__card {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     background-color: var(--color-bg-card);
     border-radius: 20px;
