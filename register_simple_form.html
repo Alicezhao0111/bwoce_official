@@ -32,10 +32,10 @@
                 </ul>
                 <div class="nav-right d-flex align-items-center ms-auto">
                     <form class="d-flex my-2 my-xl-0 me-2">
-                        <button class="btn btn-no-outline" type="submit">
+                        <button class="btn btn--no-outline" type="submit">
                             <img src="images/nav/search_icon.svg" alt="search">
                         </button>
-                        <input class="form-control rounded-pill input-transparent" type="search"
+                        <input class="form-control rounded-pill input--transparent" type="search"
                             placeholder="請輸入欲搜尋的內容">
                     </form>
                     <div class="dropdown">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="btn-no-outline d-xl-none" id="mobileToggleBtn">
+            <div class="btn--no-outline d-xl-none" id="mobileToggleBtn">
                 <div class="hamburger" id="hamburgerIcon">
                     <span></span>
                     <span></span>
@@ -70,7 +70,7 @@
                         <li><a class="dropdown-item-phone" href="#">簡中</a></li>
                     </ul>
                 </div>
-                <button class="btn btn-no-outline px-0">
+                <button class="btn btn--no-outline px-0">
                     <img src="images/nav/search_icon.svg" alt="search" width="24" height="24" />
                 </button>
             </div>
@@ -96,10 +96,10 @@
     </nav>
     <!-- NavBar ends -->
 
-    <div class="simple-form-container">
-        <div class="simple-form-top">
-            <img src="./images/login/banner_simple.png" alt="快速註冊" class="d-none d-xl-block simple-form-header-img">
-            <img src="./images/login/banner_simple.png" alt="快速註冊" class="d-xl-none d-block simple-form-header-img">
+    <div class="simple-form">
+        <div class="simple-form__header">
+            <img src="./images/login/banner_simple.png" alt="快速註冊" class="d-none d-xl-block simple-form__img">
+            <img src="./images/login/banner_simple.png" alt="快速註冊" class="d-xl-none d-block simple-form__img">
             <h2 class="d-none d-xl-block fs-5 text-nowrap mt-2">
                 福智文教基金會自1997年成立至今，近28年深耕於心靈成長領域，
             </h2>
@@ -114,29 +114,29 @@
             </h2>
         </div>
         
-        <div class="form-container">
-            <div class="font-title mb-2">歡迎福智文教基金會</div>
-            <div class="font-subtitle">快速註冊</div>
+        <div class="simple-form__container">
+            <div class="text__title mb-2">歡迎福智文教基金會</div>
+            <div class="text__subtitle">快速註冊</div>
 
             <form id="register_simple_form" method="post" action="">
                 <div class="mb-3">
-                    <div class="register-form-title">真實姓名</div>
+                    <div class="register__title">真實姓名</div>
                     <input type="text" class="form-control" placeholder="name" required>
                 </div>
                 <div class="mb-3">
-                    <div class="register-form-title">信箱</div>
+                    <div class="register__title">信箱</div>
                     <input type="email" class="form-control" placeholder="name@gmail.com" required>
                 </div>
                 <div class="mb-3">
-                    <div class="register-form-title">手機號碼</div>
+                    <div class="register__title">手機號碼</div>
                     <input type="tel" class="form-control" placeholder="09XXXXXXXX" required>
                 </div>
-                <div class="rule-agreement mt-4">
+                <div class="rule__agreement mt-4">
                     <input type="checkbox" id="agreeCheck" required>
-                    <label for="agreeCheck">勾選同意 <span>服務條款</span> 與 <span>隱私規範</span></label>
+                    <label for="agreeCheck">勾選同意 <span class="rule__agreement-text">服務條款</span> 與 <span class="rule__agreement-text">隱私規範</span></label>
                 </div>
-                <div class="form-bottom-box mt-2">
-                    <button type="submit" class="btn-custom-round btn-next">註冊</button>
+                <div class="form-bottom mt-2">
+                    <button type="submit" class="btn--primary btn--round form-bottom__next-btn">註冊</button>
                 </div>
             </form>
         </div>
@@ -145,33 +145,33 @@
         <div class="container w-xl-50">
             <div class="row">
                 <div
-                    class="footer-box col-12 col-xl-6 d-flex flex-column align-items-start align-items-xl-end mb-3 mb-xl-0">
-                    <a href="#" class="footer-link left-side text-white text-decoration-none">
+                    class="footer__side col-12 col-xl-6 d-flex flex-column align-items-start align-items-xl-end mb-3 mb-xl-0">
+                    <a href="#" class="footer__link footer__side--left text-white text-decoration-none">
                         隱私權與服務條款
                     </a>
-                    <a href="#" class="footer-link left-side text-white text-decoration-none">
+                    <a href="#" class="footer__link footer__side--left text-white text-decoration-none">
                         常見問題
                     </a>
-                    <a href="#" class="footer-link left-side text-white text-decoration-none">
+                    <a href="#" class="footer__link footer__side--left text-white text-decoration-none">
                         福智文教基金會相關連結
                     </a>
                 </div>
 
-                <div class="footer-box col-12 col-xl-6 d-flex flex-column align-items-start">
+                <div class="footer__side col-12 col-xl-6 d-flex flex-column align-items-start">
                     <a href="#"
-                        class="footer-link right-side text-white text-decoration-none d-flex align-items-center">
+                        class="footer__link footer__side--right text-white text-decoration-none d-flex align-items-center">
                         <img src="images/nav/facebook_icon.svg" alt="FB" width="30" height="30"
                             class="footer-icon me-1 me-xl-2" />
                         加入FB粉絲專頁
                     </a>
                     <a href="#"
-                        class="footer-link right-side text-white text-decoration-none d-flex align-items-center">
+                        class="footer__link footer__side--right text-white text-decoration-none d-flex align-items-center">
                         <img src="images/nav/line_icon.svg" alt="LINE" width="30" height="30"
                             class="footer-icon me-1 me-xl-2" />
                         加入官方LINE
                     </a>
                     <a href="#"
-                        class="footer-link right-side text-white text-decoration-none d-flex align-items-center">
+                        class="footer__link footer__side--right text-white text-decoration-none d-flex align-items-center">
                         <img src="images/nav/mail_icon.svg" alt="Mail" width="30" height="30"
                             class="footer-icon me-1 me-xl-2" />
                         聯絡我們
@@ -179,7 +179,7 @@
                 </div>
             </div>
 
-            <div class="copyright-text text-center mt-3 small">
+            <div class="footer__copyright text-center mt-3 small">
                 Copyright © 2025 BWFOCE All Rights Reserved.
             </div>
         </div>
