@@ -1,0 +1,16 @@
+# 忽略 node_modules 套件
+node_modules/
+
+# 忽略 autoprefixer 輸出的檔案
+dist/
+
+# 如果你使用 Vite、Webpack 等工具
+build/
+*.log
+
+# 忽略系統自動產生的設定檔
+.DS_Store
+Thumbs.db
+
+# 如果你用的是 macOS + VS Code
+.vscode/

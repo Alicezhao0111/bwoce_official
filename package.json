@@ -1,0 +1,20 @@
+{
+  "name": "bwfoce_new",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "browserslist": [
+  "last 2 versions",
+  "> 1%",
+  "ie 10"
+],
+  "devDependencies": {
+    "postcss-cli": "^11.0.1"
+  }
+}
