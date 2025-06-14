@@ -1,23 +1,25 @@
-html, body {
-	font-family: 'Noto Sans TC', sans-serif;
-	background-color: var(--color-bg-light);
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	line-height: 1.5;
+html,
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--color-bg-light);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    line-height: 1.5;
 }
 
-ol, ul {
-	list-style: none;
-	margin: 0;
-	padding: 0
+ol,
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
 }
 
 a {
@@ -53,6 +55,7 @@ svg {
     --font-16: 1rem;
     --font-20: 1.25rem;
     --font-24: 1.5rem;
+    --font-32: 2rem;
     --font-48: 3rem;
 }
 
@@ -486,38 +489,554 @@ input[type="checkbox"] {
 
 /* content */
 
-.hero-section {
-    max-width: 1280px;
+.hero {
+    width: 100%;
     height: 695px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero__swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.hero__slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero__media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background-color .3s ease;
+    z-index: 1;
+}
+
+.hero__slide--masked .hero__overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero__caption-line {
+    display: block;
+    white-space: nowrap;
+    color: white;
+    font-size: var(--font-48);
+    line-height: 1.2;
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 8px;
+}
+
+.hero__pagination.swiper-pagination {
+    bottom: 16px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+.hero__pagination .swiper-pagination-bullet {
+    background-color: var(--color-primary-yellow);
+    opacity: 0.5;
+}
+
+.hero__pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+@media (max-width:1199.98px) {
+    .hero {
+        height: 400px;
+    }
+
+    .hero__caption-line {
+        font-size: var(--font-20);
+    }
+}
+
+@media (max-width:767.98px) {
+    .hero {
+        height: 300px;
+    }
+
+    .hero__caption-line {
+        font-size: var(--font-20);
+    }
+}
+
+.stats {
+    width: 100%;
+    max-width: 1004px;
+    margin: 0 auto;
+    padding: 24px 24px 96px 24px;
+    text-align: center;
+}
+
+.stats__intro {
+    font-size: var(--font-24);
+    font-weight: 300;
+    line-height: 1;
+    padding: 0 8px;
+    margin-bottom: 50px;
+    white-space: pre-line;
+}
+
+.stats__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 1199.98px) {
+    .stats__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stats__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    /* 允許背景超出容器 */
+
+    /* 先把 padding 調大，上方留空間放整片葉子 */
+    padding: 40px 20px 40px;
+
+    /* 圖片放置方式 */
+    background-repeat: no-repeat;
+    background-position: top center;
+    /* 從上方開始對齊 */
+    background-size: contain;
+    /* 縮放至整張圖都露出 */
+
+    /* 如果你要讓葉子稍微超出頂部，也可以這樣： */
+    /* background-position: -20px top; */
+    /* 向上偏移 20px */
+}
+
+.stats__item--yellow {
+    background-image: url('/images/index/leaf-yellow.svg');
+}
+
+.stats__item--green {
+    background-image: url('/images/index/leaf-green.svg');
+}
+
+.stats__title {
+    font-size: var(--font-20);
+}
+
+.stats__subtitle {
+    font-size: var(--font-16);
+    margin-bottom: 5px;
+}
+
+.stats__number {
+    font-size: var(--font-32);
+    font-weight: 500;
+    color: var(--color-text--black);
+    margin-top: auto;
+    /* 把數字推到底部 */
+}
+
+/* 手機版微調 */
+@media (max-width: 1198.98px) {
+
+    .stats__intro {
+        font-size: var(--font-20);
+        white-space: normal;
+        line-height: 1.8;
+    }
+
+    .stats__intro--br {
+        display: none;
+    }
+
+    .stats__grid .stats__item:nth-child(3) {
+        background-image: url('/images/index/leaf-yellow.svg') !important;
+    }
+
+    .stats__grid .stats__item:nth-child(4) {
+        background-image: url('/images/index/leaf-green.svg') !important;
+    }
+
+    .stats__item {
+        padding: 40px 16px 24px;
+    }
+
+}
+
+/*--------------------------------------
+  Block: circle-section
+--------------------------------------*/
+
+
+.circle-section__wrap {
+    background-color: var(--color-primary-yellow);
+}
+
+/* 上波浪 */
+.circle-section::before,
+.circle-section::after {
+    content: "";
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.circle-section::before {
+    background-image: url("/images/index/top-wave.png");
+    aspect-ratio: 1280/104;
+}
+
+/* 下波浪 */
+.circle-section::after {
+    background-image: url("/images/index/bottom-wave.png");
+    aspect-ratio: 1280/104;
+}
+
+/* 內容放在 wrap 裡面 */
+.circle-section__wrap {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* ------------------------------------
+   Inner Container
+------------------------------------ */
+.circle-section__container {
+    position: relative;
+    margin: 0 auto;
+    padding: 24px 0px;
+    text-align: center;
+}
+
+
+/* CTA 按鈕 */
+.circle-section__cta {
+    margin-bottom: 24px;
+}
+
+/* 標題 */
+.circle-section__heading {
+    font-size: var(--font-24);
+    margin-bottom: 32px;
+}
+
+/*--------------------------------------
+  Filters 分類選單
+--------------------------------------*/
+.circle-section__filters {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0;
+}
+
+.circle-section__filters li {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.circle-section__filter {
+    color: var(--color-accent-brown);
+    text-decoration: none;
+    padding: 4px 0;
+    position: relative;
+}
+
+.circle-section__filter.is-active {
+    font-weight: 700;
+}
+
+.circle-section__filter.is-active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-accent-brown);
+}
+
+/*--------------------------------------
+  Swiper 共用樣式
+--------------------------------------*/
+.circle-section .swiper-wrapper {
+
+    height: 450px;
+}
+
+.circle-section__swiper {
+    max-width: 910px;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 48px;
     overflow: hidden;
 }
 
-.bg-video {
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    display: none;
+}
+
+.circle-section__nav {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+    background-color: inherit;
+}
+
+/* 左箭頭 */
+.circle-section__nav--prev {
+    width: 40px;
+    height: 40px;
+    background-image: url('/images/index/swiper-arrow-left.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 21px 40px;
+    left: -10px;
+    z-index: 10000;
+}
+
+/* 右箭頭 */
+.circle-section__nav--next {
+    width: 40px;
+    height: 40px;
+    background-image: url('/images/index/swiper-arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 21px 40px;
+    right: -10px;
+}
+
+/*--------------------------------------
+  Slide & Circle Card
+--------------------------------------*/
+.circle-section__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .3s ease;
+}
+
+.circle-section__slide:hover {
+    transform: scale(1);
+}
+
+
+/* 內部圓形卡片 */
+/* 外層：黃圈 (留白 + 外圏) */
+.circle-card {
+    width: 100%;
+    /* 交給 swiper-slide 決定寬度 */
+    max-width: 422px;
+    aspect-ratio: 1/1;
+    /* 正方形 */
+    background-color: #fff;
+    border: 1px solid var(--color-accent-brown);
+    border-radius: 50%;
+    /* 圓形 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 6px 6px 0 0 var(--color-accent-brown);
+}
+
+.circle-card:hover {
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+}
+
+/* 內層：白圈 */
+.circle-card__inner {
+    /* 比 .circle-card 內縮 23px * 2 */
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+
+}
+
+/* 半圓圖片 */
+.circle-card__media-wrapper {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    /* 只在這裡裁切 */
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.circle-card__media {
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
     object-fit: cover;
-    z-index: 0;
+    object-position: center center;
+    display: block;
 }
 
-.hero-text {
-    z-index: 1;
-    padding-top: 140px;
+/* 內容：按鈕 + 說明文字 */
+.circle-card__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
 }
 
-.hero-text h2 {
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: var(--font-48);
-    line-height: 1.2;
-    color: #FFFFFF;
+/* 按鈕 */
+.circle-card__btn {
+    min-width: 240px;
+    height: 52px;
+    padding: 8px 16px;
+    border-radius: 24px;
+    background-color: #FFF6D0;
+    color: var(--color-accent-brown);
+    font-size: var(--font-16);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 1px 3px 1px rgba(0, 0, 0, 0.15),
+        0 1px 2px 0 rgba(0, 0, 0, 0.30);
+    transition: background-color .2s, transform .2s;
+}
+
+/* Arrow SVG 往右移動 on hover */
+.circle-card__btn-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    flex-shrink: 0;
+    fill: currentColor;
+    transition: transform .2s;
+}
+
+.circle-card__btn:hover .circle-card__btn-icon {
+    transform: translateX(4px);
+}
+
+/* 說明文字 */
+.circle-card__desc {
+    max-width: 280px;
+    font-size: var(--font-16);
+    line-height: 1.4;
     text-align: center;
-    text-shadow:
-        0px 1px 3px rgba(0, 0, 0, 0.15),
-        0px 1px 2px rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+/* 手機響應式：縮小圓形 */
+@media (max-width:920px) {
+    .circle-card__inner {
+        width: calc(100% - 25px);
+        height: calc(100% - 25px);
+    }
+
+    .circle-section__nav--prev,
+    .circle-section__nav--next {
+        display: none;
+    }
+
+    .circle-card__desc {
+        max-width: 230px;
+    }
+}
+
+/*--------------------------------------
+  響應式
+--------------------------------------*/
+
+@media (max-width: 767.98px) {
+    .circle-section::before {
+        background-image: url("/images/index/top-wave-phone.png");
+        aspect-ratio: 375/104;
+    }
+
+    /* 下波浪 */
+    .circle-section::after {
+        background-image: url("/images/index/bottom-wave-phone.png");
+        aspect-ratio: 375/104;
+    }
+
+    .circle-card__btn {
+        height: 40px;
+    }
+
+    .circle-card__desc {
+        max-width: 210px;
+        -webkit-line-clamp: 2;
+    }
+}
+
+.js-primary-swiper .swiper-slide {
+    flex: 0 0 calc((100% - 24px) / 1.3);
+    min-width: 320px;
+    max-width: 380px;
+}
+
+/* ≥786px：恢復自動寬度，由 slidesPerView:2 決定 */
+@media (min-width: 920px) {
+
+    .circle-section__swiper {
+        position: relative;
+        /* 您可以設定一個 padding，讓箭頭有空間可以擺放 */
+        padding: 0 28px 0 60px;
+        /* 例如左右各留 60px 的空間 */
+    }
+
+
+    /* Slide → 交給 Swiper 自動算寬度 */
+    .js-primary-swiper .swiper-slide {
+        flex: 0 0 auto !important;
+        width: auto !important;
+    }
+
+    /* 整組 Swiper 左右各留 40px 空隙 */
+    .circle-section__swiper--primary {
+        margin: 0 auto;
+        /* 置中整組 */
+        position: relative;
+        /* 讓 arrow 用絕對定位 */
+    }
 }
 
 /* login , register_simple */
