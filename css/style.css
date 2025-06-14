@@ -50,6 +50,8 @@ svg {
     --color-font-gray: #71727A;
     --color-text--black: #1F2024;
 
+    --color-btn-yellow: #FFF6D0;
+
     --font-12: 0.75rem;
     --font-14: 0.875rem;
     --font-16: 1rem;
@@ -690,12 +692,6 @@ input[type="checkbox"] {
   Block: circle-section
 --------------------------------------*/
 
-
-.circle-section__wrap {
-    background-color: var(--color-primary-yellow);
-}
-
-/* 上波浪 */
 .circle-section::before,
 .circle-section::after {
     content: "";
@@ -710,32 +706,21 @@ input[type="checkbox"] {
     aspect-ratio: 1280/104;
 }
 
-/* 下波浪 */
 .circle-section::after {
     background-image: url("/images/index/bottom-wave.png");
     aspect-ratio: 1280/104;
 }
 
-/* 內容放在 wrap 裡面 */
 .circle-section__wrap {
-    position: relative;
-    z-index: 1;
+    background-color: var(--color-primary-yellow);
 }
 
-
-
-/* ------------------------------------
-   Inner Container
------------------------------------- */
 .circle-section__container {
-    position: relative;
     margin: 0 auto;
     padding: 24px 0px;
     text-align: center;
 }
 
-
-/* CTA 按鈕 */
 .circle-section__cta {
     margin-bottom: 24px;
 }
@@ -744,6 +729,198 @@ input[type="checkbox"] {
 .circle-section__heading {
     font-size: var(--font-24);
     margin-bottom: 32px;
+}
+
+.circle-section__swiper {
+    position: relative;
+    max-width: 910px;
+    margin: 0 auto;
+    margin-bottom: 48px;
+    padding: 0 28px 0 58px;
+    overflow: hidden;
+}
+
+.circle-section .swiper-wrapper {
+    height: 450px;
+}
+
+.circle-section__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 21px 40px;
+    z-index: 10;
+    background-color: inherit;
+}
+
+.circle-section__nav--prev {
+    background-image: url('/images/index/swiper-arrow-left.svg');
+    left: -10px;
+}
+
+.circle-section__nav--next {
+    background-image: url('/images/index/swiper-arrow-right.svg');
+    right: -10px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    display: none;
+}
+
+.js-primary-swiper .swiper-slide {
+    flex: 0 0 auto;
+    width: auto;
+
+    min-width: 330px;
+    max-width: 380px;
+}
+
+.circle-section__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 422px;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    border: 1px solid var(--color-accent-brown);
+    border-radius: 50%;
+    box-shadow: 6px 6px 0 0 var(--color-accent-brown);
+}
+
+.circle-card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.circle-card__inner {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.circle-card__media-wrapper {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.circle-card__media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.circle-card__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.circle-card__btn {
+    min-width: 240px;
+    height: 48px;
+    padding: 8px 16px;
+    border-radius: 24px;
+    background-color: var(--color-btn-yellow);
+    color: var(--color-accent-brown);
+    font-size: var(--font-16);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 1px 3px 1px rgba(0, 0, 0, 0.15),
+        0 1px 2px 0 rgba(0, 0, 0, 0.30);
+}
+
+.circle-card__btn-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    flex-shrink: 0;
+    transition: transform .2s;
+}
+
+.circle-card__btn:hover .circle-card__btn-icon {
+    transform: translateX(4px);
+}
+
+.circle-card__desc {
+    max-width: 250px;
+    font-size: var(--font-16);
+    line-height: 1.4;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+/* 手機響應式：縮小圓形 */
+@media (max-width:920px) {
+    .circle-card__inner {
+        width: calc(100% - 25px);
+        height: calc(100% - 25px);
+    }
+
+    .circle-card__desc {
+        max-width: 230px;
+    }
+
+    .js-primary-swiper .swiper-slide {
+        flex: 0 0 calc((100% - 24px) / 1.3);
+    }
+
+    .circle-section__swiper {
+        padding: 0;
+    }
+
+    .circle-section__nav--prev,
+    .circle-section__nav--next {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .circle-section::before {
+        background-image: url("/images/index/top-wave-phone.png");
+        aspect-ratio: 375/104;
+    }
+
+    .circle-section::after {
+        background-image: url("/images/index/bottom-wave-phone.png");
+        aspect-ratio: 375/104;
+    }
+
+    .circle-card__desc {
+        max-width: 200px;
+    }
 }
 
 /*--------------------------------------
@@ -779,264 +956,6 @@ input[type="checkbox"] {
     right: 0;
     height: 2px;
     background: var(--color-accent-brown);
-}
-
-/*--------------------------------------
-  Swiper 共用樣式
---------------------------------------*/
-.circle-section .swiper-wrapper {
-
-    height: 450px;
-}
-
-.circle-section__swiper {
-    max-width: 910px;
-    position: relative;
-    margin: 0 auto;
-    margin-bottom: 48px;
-    overflow: hidden;
-}
-
-.swiper-button-next:after,
-.swiper-button-prev:after {
-    display: none;
-}
-
-.circle-section__nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 10;
-    background-color: inherit;
-}
-
-/* 左箭頭 */
-.circle-section__nav--prev {
-    width: 40px;
-    height: 40px;
-    background-image: url('/images/index/swiper-arrow-left.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 21px 40px;
-    left: -10px;
-    z-index: 10000;
-}
-
-/* 右箭頭 */
-.circle-section__nav--next {
-    width: 40px;
-    height: 40px;
-    background-image: url('/images/index/swiper-arrow-right.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 21px 40px;
-    right: -10px;
-}
-
-/*--------------------------------------
-  Slide & Circle Card
---------------------------------------*/
-.circle-section__slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform .3s ease;
-}
-
-.circle-section__slide:hover {
-    transform: scale(1);
-}
-
-
-/* 內部圓形卡片 */
-/* 外層：黃圈 (留白 + 外圏) */
-.circle-card {
-    width: 100%;
-    /* 交給 swiper-slide 決定寬度 */
-    max-width: 422px;
-    aspect-ratio: 1/1;
-    /* 正方形 */
-    background-color: #fff;
-    border: 1px solid var(--color-accent-brown);
-    border-radius: 50%;
-    /* 圓形 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 6px 6px 0 0 var(--color-accent-brown);
-}
-
-.circle-card:hover {
-    transform: scale(1.01);
-    transition: transform 0.3s ease;
-}
-
-/* 內層：白圈 */
-.circle-card__inner {
-    /* 比 .circle-card 內縮 23px * 2 */
-    width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    background-color: #fff;
-    border-radius: 50%;
-    position: relative;
-
-}
-
-/* 半圓圖片 */
-.circle-card__media-wrapper {
-    width: 100%;
-    height: 50%;
-    overflow: hidden;
-    /* 只在這裡裁切 */
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-}
-
-.circle-card__media {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-}
-
-/* 內容：按鈕 + 說明文字 */
-.circle-card__content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    padding-top: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-
-}
-
-/* 按鈕 */
-.circle-card__btn {
-    min-width: 240px;
-    height: 52px;
-    padding: 8px 16px;
-    border-radius: 24px;
-    background-color: #FFF6D0;
-    color: var(--color-accent-brown);
-    font-size: var(--font-16);
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-        0 1px 3px 1px rgba(0, 0, 0, 0.15),
-        0 1px 2px 0 rgba(0, 0, 0, 0.30);
-    transition: background-color .2s, transform .2s;
-}
-
-/* Arrow SVG 往右移動 on hover */
-.circle-card__btn-icon {
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    flex-shrink: 0;
-    fill: currentColor;
-    transition: transform .2s;
-}
-
-.circle-card__btn:hover .circle-card__btn-icon {
-    transform: translateX(4px);
-}
-
-/* 說明文字 */
-.circle-card__desc {
-    max-width: 280px;
-    font-size: var(--font-16);
-    line-height: 1.4;
-    text-align: center;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-}
-
-/* 手機響應式：縮小圓形 */
-@media (max-width:920px) {
-    .circle-card__inner {
-        width: calc(100% - 25px);
-        height: calc(100% - 25px);
-    }
-
-    .circle-section__nav--prev,
-    .circle-section__nav--next {
-        display: none;
-    }
-
-    .circle-card__desc {
-        max-width: 230px;
-    }
-}
-
-/*--------------------------------------
-  響應式
---------------------------------------*/
-
-@media (max-width: 767.98px) {
-    .circle-section::before {
-        background-image: url("/images/index/top-wave-phone.png");
-        aspect-ratio: 375/104;
-    }
-
-    /* 下波浪 */
-    .circle-section::after {
-        background-image: url("/images/index/bottom-wave-phone.png");
-        aspect-ratio: 375/104;
-    }
-
-    .circle-card__btn {
-        height: 40px;
-    }
-
-    .circle-card__desc {
-        max-width: 210px;
-        -webkit-line-clamp: 2;
-    }
-}
-
-.js-primary-swiper .swiper-slide {
-    flex: 0 0 calc((100% - 24px) / 1.3);
-    min-width: 320px;
-    max-width: 380px;
-}
-
-/* ≥786px：恢復自動寬度，由 slidesPerView:2 決定 */
-@media (min-width: 920px) {
-
-    .circle-section__swiper {
-        position: relative;
-        /* 您可以設定一個 padding，讓箭頭有空間可以擺放 */
-        padding: 0 28px 0 60px;
-        /* 例如左右各留 60px 的空間 */
-    }
-
-
-    /* Slide → 交給 Swiper 自動算寬度 */
-    .js-primary-swiper .swiper-slide {
-        flex: 0 0 auto !important;
-        width: auto !important;
-    }
-
-    /* 整組 Swiper 左右各留 40px 空隙 */
-    .circle-section__swiper--primary {
-        margin: 0 auto;
-        /* 置中整組 */
-        position: relative;
-        /* 讓 arrow 用絕對定位 */
-    }
 }
 
 /* login , register_simple */
