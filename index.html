@@ -173,13 +173,14 @@
       <section class="circle-section">
         <div class="circle-section__wrap">
           <div class="circle-section__container">
-            <button class="btn-custom-round circle-section__cta">
-              走進幸福生活圈
-            </button>
-            <!-- 標題 -->
-            <h2 class="circle-section__heading">我的生活圈</h2>
-            <!-- 第一組 Swiper -->
-            <div class="circle-section__swiper circle-section__swiper--primary swiper js-primary-swiper">
+            <h2 class="title title--square" style="--ts-brush-w: 330px;
+                --ts-brush-h: 110px; --ts-brush-img: url('/images/index/title-brush.svg');">
+              <span>走進幸福生活圈</span>
+            </h2>
+            <h2 class="circle-section__heading text--brown">我的生活圈</h2>
+            <!-- Swiper -->
+            <div id="primary-swiper"
+              class="circle-section__swiper circle-section__swiper--primary swiper js-primary-swiper">
               <div class="swiper-wrapper">
                 <!-- first card -->
                 <div class="swiper-slide circle-section__slide" data-cat="sustain">
@@ -187,65 +188,6 @@
                     <a href="#" class="circle-card__inner">
                       <div class="circle-card__media-wrapper">
                         <img src="./images/index/circle-card.png" alt="生活圈圖片" class="circle-card__media" />
-                      </div>
-                      <div class="circle-card__content">
-                        <button class="circle-card__btn">
-                          永續生活圈
-                          <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
-                            width="12px" height="14px">
-                        </button>
-                        <!-- 字數限制：40全形文字以內 -->
-                        <p class="circle-card__desc text--brown">
-                          推廣綠色生活理念，共創環保、節能、友善環境的永續未來。友善環境的永續未來。友善環境的永續未來。友善環境的永續未來。
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <!-- second card -->
-                <div class="swiper-slide circle-section__slide" data-cat="sustain">
-                  <div class="circle-card">
-                    <a href="#" class="circle-card__inner">
-                      <div class="circle-card__media-wrapper">
-                        <img src="./images/index/circle-card-2.png" alt="生活圈圖片" class="circle-card__media" />
-                      </div>
-                      <div class="circle-card__content">
-                        <button class="circle-card__btn">
-                          立即加入更多生活圈
-                          <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
-                            width="12px" height="14px">
-                        </button>
-                        <p class="circle-card__desc text--brown">
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <!-- 再多放其它 slides，並依 data-cat 設定對應分類… -->
-              </div>
-              <button class="swiper-button-prev circle-section__nav circle-section__nav--prev"></button>
-              <button class="swiper-button-next circle-section__nav circle-section__nav--next"></button>
-            </div>
-            <!-- 分類選單 -->
-            <ul class="circle-section__filters">
-              <li><a href="#" class="circle-section__filter is-active" data-cat="all">全部</a></li>
-              <li><a href="#" class="circle-section__filter" data-cat="sustain">永續生活圈</a></li>
-              <li><a href="#" class="circle-section__filter" data-cat="relief">解憂生活圈</a></li>
-              <li><a href="#" class="circle-section__filter" data-cat="family">家庭生活圈</a></li>
-              <li><a href="#" class="circle-section__filter" data-cat="enterprise">企業生活圈</a></li>
-              <li><a href="#" class="circle-section__filter" data-cat="fun">樂活生活圈</a></li>
-            </ul>
-            <hr>
-
-            <!-- 第二組 Swiper -->
-            <div class="circle-section__swiper circle-section__swiper--primary swiper js-primary-swiper">
-              <div class="swiper-wrapper">
-                <!-- first card -->
-                <div class="swiper-slide circle-section__slide" data-cat="sustain">
-                  <div class="circle-card">
-                    <a href="#" class="circle-card__inner">
-                      <div class="circle-card__media-wrapper">
-                        <img src="./images/demo.jpg" alt="生活圈圖片" class="circle-card__media" />
                       </div>
                       <div class="circle-card__content">
                         <button class="circle-card__btn">
@@ -273,15 +215,94 @@
                           <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
                             width="12px" height="14px">
                         </button>
-                        <!-- 40全形文字以內 -->
                         <p class="circle-card__desc text--brown">
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="swiper-slide circle-section__slide" data-cat="sustain">
+                  <div class="circle-card">
+                    <a href="#" class="circle-card__inner">
+                      <div class="circle-card__media-wrapper">
+                        <img src="./images/index/circle-card.png" alt="生活圈圖片" class="circle-card__media" />
+                      </div>
+                      <div class="circle-card__content">
+                        <button class="circle-card__btn">
+                          永續生活圈
+                          <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
+                            width="12px" height="14px">
+                        </button>
+                        <p class="circle-card__desc text--brown">
+                          推廣綠色生活理念，共創環保、節能、友善環境的永續未來。
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <button class="swiper-button-prev circle-section__nav circle-section__nav--prev"></button>
+              <button class="swiper-button-next circle-section__nav circle-section__nav--next"></button>
+            </div>
+            <!-- 分類選單 -->
+            <div class="circle-section__filters-wrapper">
+              <!-- 第一階段先隱藏 -->
+              <ul class="circle-section__filters d-none">
+                <li><a href="#" class="circle-section__filter is-active" data-cat="all">全部</a></li>
+                <li><a href="#" class="circle-section__filter" data-cat="sustain">永續生活圈</a></li>
+                <li><a href="#" class="circle-section__filter" data-cat="relief">解憂生活圈</a></li>
+                <li><a href="#" class="circle-section__filter" data-cat="family">家庭生活圈</a></li>
+                <li><a href="#" class="circle-section__filter" data-cat="enterprise">企業生活圈</a></li>
+                <li><a href="#" class="circle-section__filter" data-cat="fun">樂活生活圈</a></li>
+              </ul>
+            </div>
+
+            <!-- Swiper -->
+            <div id="second-swiper"
+              class="circle-section__swiper circle-section__swiper--primary swiper js-primary-swiper">
+              <div class="swiper-wrapper">
+                <!-- first card -->
+                <div class="swiper-slide circle-section__slide" data-cat="sustain">
+                  <div class="circle-card">
+                    <a href="#" class="circle-card__inner">
+                      <div class="circle-card__media-wrapper">
+                        <img src="./images/index/circle-card-2.png" alt="生活圈圖片" class="circle-card__media" />
+                      </div>
+                      <div class="circle-card__content">
+                        <button class="circle-card__btn">
+                          永續生活圈
+                          <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
+                            width="12px" height="14px">
+                        </button>
+                        <p class="circle-card__desc text--brown">
+                          推廣綠色生活理念，共創環保、節能、友善環境的永續未來。
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <!-- second card -->
+                <div class="swiper-slide circle-section__slide" data-cat="relief">
+                  <div class="circle-card">
+                    <a href="#" class="circle-card__inner">
+                      <div class="circle-card__media-wrapper">
+                        <img src="./images/index/circle-card.png" alt="生活圈圖片" class="circle-card__media" />
+                      </div>
+                      <div class="circle-card__content">
+                        <button class="circle-card__btn">
+                          永續生活圈
+                          <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
+                            width="12px" height="14px">
+                        </button>
+                        <p class="circle-card__desc text--brown">
+                          推廣綠色生活理念，共創環保、節能、友善環境的永續未來。
                         </p>
                       </div>
                     </a>
                   </div>
                 </div>
                 <!-- third card -->
-                <div class="swiper-slide circle-section__slide" data-cat="sustain">
+                <div class="swiper-slide circle-section__slide" data-cat="family">
                   <div class="circle-card">
                     <a href="#" class="circle-card__inner">
                       <div class="circle-card__media-wrapper">
@@ -289,31 +310,32 @@
                       </div>
                       <div class="circle-card__content">
                         <button class="circle-card__btn">
-                          立即加入更多生活圈
+                          永續生活圈
                           <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
                             width="12px" height="14px">
                         </button>
                         <p class="circle-card__desc text--brown">
+                          推廣綠色生活理念，共創環保、節能、友善環境的永續未來。
                         </p>
                       </div>
                     </a>
                   </div>
                 </div>
                 <!-- forth card -->
-
-                <div class="swiper-slide circle-section__slide" data-cat="sustain">
+                <div class="swiper-slide circle-section__slide" data-cat="fun">
                   <div class="circle-card">
                     <a href="#" class="circle-card__inner">
                       <div class="circle-card__media-wrapper">
-                        <img src="./images/index/circle-card-2.png" alt="生活圈圖片" class="circle-card__media" />
+                        <img src="./images/index/circle-card.png" alt="生活圈圖片" class="circle-card__media" />
                       </div>
                       <div class="circle-card__content">
                         <button class="circle-card__btn">
-                          立即加入更多生活圈
+                          永續生活圈
                           <img src="./images/index/arrow-brown.svg" alt="arrow" class="circle-card__btn-icon"
                             width="12px" height="14px">
                         </button>
                         <p class="circle-card__desc text--brown">
+                          推廣綠色生活理念，共創環保、節能、友善環境的永續未來。
                         </p>
                       </div>
                     </a>
@@ -325,6 +347,141 @@
             </div>
           </div>
       </section>
+      <section class="activities-section">
+        <div class="container">
+          <h2 class="title title--square" style="--ts-brush-w: 290px;
+                --ts-brush-h: 115px; --ts-brush-img: url('/images/index/brush-yellow.svg');">
+            <span>探索精彩活動</span>
+          </h2>
+          <div class="activities-section__grid">
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+            <a href="#" class="activity-card">
+              <div class="activity-card__media-wrapper">
+                <img src="./images/index/activity-card.png" alt="" class="activity-card__img">
+              </div>
+              <div class="activity-card__content">
+                <h3 class="activity-card__title text--black">幸福Chill一夏!! 青年教師自我探索工作坊</h3>
+                <div class="activity-card__date text--brown">
+                  <img src="./images/index/calendar.svg" alt="">
+                  <span>2025/07/14—2025/07/16</span>
+                </div>
+                <p class="activity-card__tags text--brown"># 永續生活圈 # 解憂生活圈 </p>
+              </div>
+            </a>
+          </div>
+
+            <button type="button" class="btn--link activities-section__toggle text--brown">
+              查看更多
+              <svg class="activities-section__toggle-icon" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
+              </svg>
+            </button>
+          </div>
+      </section>
+
     </div>
   </main>
 

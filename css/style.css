@@ -58,6 +58,7 @@ svg {
     --font-20: 1.25rem;
     --font-24: 1.5rem;
     --font-32: 2rem;
+    --font-36: 2.25rem;
     --font-48: 3rem;
 }
 
@@ -74,6 +75,12 @@ svg {
     margin-bottom: 1.5rem;
 }
 
+.text__title--brown {
+    color: var(--color-accent-brown);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
 .text--brown {
     color: var(--color-accent-brown);
     font-weight: 400;
@@ -82,6 +89,61 @@ svg {
 .text--black {
     color: var(--color-text--black);
     font-weight: 400;
+}
+
+/* title */
+
+/* 基本 title 元件 */
+.title {
+    position: relative;
+    display: inline-block;
+    font-size: var(--font-36);
+    font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+    .title {
+        font-size: var(--font-24);
+    }
+}
+
+.title--square {
+    position: relative;
+}
+
+.title--square>span {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 0.25em 1em 0.25em 0.5em;
+    color: var(--color-accent-brown);
+}
+
+.title--square>span::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: var(--ts-brush-w, 300px);
+    height: var(--ts-brush-h, 100px);
+    background-image: var(--ts-brush-img, url("/images/index/title-brush-yellow.svg"));
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+}
+
+.title--square::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    border: 2px solid var(--color-accent-brown);
+    border-radius: 4px;
 }
 
 /* button */
@@ -607,7 +669,7 @@ input[type="checkbox"] {
     gap: 24px;
 }
 
-@media (max-width: 1199.98px) {
+@media (max-width: 767.98px) {
     .stats__grid {
         grid-template-columns: 1fr;
     }
@@ -619,21 +681,10 @@ input[type="checkbox"] {
     flex-direction: column;
     align-items: center;
     overflow: visible;
-    /* 允許背景超出容器 */
-
-    /* 先把 padding 調大，上方留空間放整片葉子 */
     padding: 40px 20px 40px;
-
-    /* 圖片放置方式 */
     background-repeat: no-repeat;
     background-position: top center;
-    /* 從上方開始對齊 */
     background-size: contain;
-    /* 縮放至整張圖都露出 */
-
-    /* 如果你要讓葉子稍微超出頂部，也可以這樣： */
-    /* background-position: -20px top; */
-    /* 向上偏移 20px */
 }
 
 .stats__item--yellow {
@@ -658,12 +709,9 @@ input[type="checkbox"] {
     font-weight: 500;
     color: var(--color-text--black);
     margin-top: auto;
-    /* 把數字推到底部 */
 }
 
-/* 手機版微調 */
 @media (max-width: 1198.98px) {
-
     .stats__intro {
         font-size: var(--font-20);
         white-space: normal;
@@ -685,12 +733,7 @@ input[type="checkbox"] {
     .stats__item {
         padding: 40px 16px 24px;
     }
-
 }
-
-/*--------------------------------------
-  Block: circle-section
---------------------------------------*/
 
 .circle-section::before,
 .circle-section::after {
@@ -725,10 +768,24 @@ input[type="checkbox"] {
     margin-bottom: 24px;
 }
 
-/* 標題 */
 .circle-section__heading {
-    font-size: var(--font-24);
-    margin-bottom: 32px;
+    position: relative;
+    padding: 0.25em 0;
+    margin: 50px 0 20px 0;
+    font-size: var(--font-32);
+    font-weight: 700;
+}
+
+.circle-section__heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 80vw;
+    max-width: 1100px;
+    height: 3px;
+    background-color: var(--color-bg-light);
 }
 
 .circle-section__swiper {
@@ -775,7 +832,6 @@ input[type="checkbox"] {
 .js-primary-swiper .swiper-slide {
     flex: 0 0 auto;
     width: auto;
-
     min-width: 330px;
     max-width: 380px;
 }
@@ -882,7 +938,67 @@ input[type="checkbox"] {
     overflow: hidden;
 }
 
-/* 手機響應式：縮小圓形 */
+.circle-section__filters-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.circle-section__filters-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 90vw;
+    max-width: 1100px;
+    height: 3px;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.circle-section__filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.circle-section__filter {
+    color: var(--color-font-gray);
+    font-size: var(--font-32);
+    font-weight: 400;
+    padding: 4px 0;
+    position: relative;
+}
+
+.circle-section__filter.is-active {
+    font-weight: 500;
+    color: var(--color-accent-brown);
+}
+
+.circle-section__filters li {
+    position: relative;
+    margin-right: 24px;
+}
+
+.circle-section__filters li:last-child {
+    margin-right: 0;
+}
+
+.circle-section__filters li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(100% + 18px);
+    top: 55%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1.2em;
+    background-color: var(--color-accent-brown);
+}
+
 @media (max-width:920px) {
     .circle-card__inner {
         width: calc(100% - 25px);
@@ -905,6 +1021,35 @@ input[type="checkbox"] {
     .circle-section__nav--next {
         display: none;
     }
+
+    .circle-section__filters {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 0 12px;
+        padding: 8px 16px 8px 32px;
+    }
+
+    .circle-section__filters li {
+        flex: 0 0 auto;
+    }
+
+    .circle-section__filters {
+        scrollbar-width: none;
+    }
+
+    .circle-section__filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .circle-section__filter {
+        font-size: var(--font-20);
+    }
+
+    .circle-section__filters li:not(:last-child)::after {
+        height: 0.8em;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -921,45 +1066,163 @@ input[type="checkbox"] {
     .circle-card__desc {
         max-width: 200px;
     }
+
+    .circle-section .title--square>span::before {
+        --ts-brush-w: 225px;
+        --ts-brush-h: 75px;
+    }
+
+    .circle-section__heading {
+        font-size: var(--font-20);
+    }
 }
 
-/*--------------------------------------
-  Filters 分類選單
---------------------------------------*/
-.circle-section__filters {
-    list-style: none;
+.activities-section {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.activities-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.activities-section__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(12px, 4vw, 48px);
+    margin: 70px 5px 16px;
     padding: 0;
-    margin: 32px 0;
 }
 
-.circle-section__filters li {
-    display: inline-block;
-    margin: 0 8px;
+.activities-section__grid .activity-card:nth-child(n+4) {
+    display: none;
 }
 
-.circle-section__filter {
-    color: var(--color-accent-brown);
-    text-decoration: none;
-    padding: 4px 0;
-    position: relative;
+.activities-section__grid.is-expanded .activity-card {
+    display: block;
 }
 
-.circle-section__filter.is-active {
-    font-weight: 700;
+.activity-card {
+    display: block;
+    border: 1px solid var(--color-accent-brown);
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 0 var(--color-accent-brown);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 24px 24px 10px 24px;
+    height: 380px;
 }
 
-.circle-section__filter.is-active::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--color-accent-brown);
+.activity-card:hover {
+    transform: translateY(-4px);
+}
+
+.activity-card__media-wrapper {
+    width: 100%;
+    aspect-ratio: 240 / 168;
+    overflow: hidden;
+}
+
+.activity-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.activity-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activity-card__title {
+    font-size: var(--font-20);
+    font-weight: 500;
+    margin-top: 16px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
+
+.activity-card__date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-16);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    margin-bottom: 12px;
+}
+
+.activity-card__date img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.activity-card__tags {
+    font-size: var(--font-16);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    margin-top: auto;
+}
+
+@media (max-width: 767.98px) {
+    .activities-section .title--square>span::before {
+        --ts-brush-w: 192px;
+         --ts-brush-h: 75px;
+    }
+    .activity-card {
+        aspect-ratio: 288 / 380;
+        width: 100%;
+        max-width: 288px;
+    }
+
+    .activity-card__body {
+        padding: 12px 16px;
+    }
+
+    .activities-section__grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        margin-top: 32px;
+        gap: 24px;
+    }
+}
+
+.activities-section__toggle {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-20);
+    background: none;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.activities-section__toggle-icon {
+    margin-left: 8px;
+    transition: transform .3s;
+}
+
+.activities-section__toggle.expanded .activities-section__toggle-icon {
+    transform: rotate(180deg);
 }
 
 /* login , register_simple */
-
 .login {
     max-width: 400px;
 }

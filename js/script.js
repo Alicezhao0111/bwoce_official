@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  new Swiper(".js-primary-swiper", {
+  new Swiper("#primary-swiper", {
     slidesPerView: 2,
     watchOverflow: true,
     loop: true,
@@ -107,31 +107,76 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  new Swiper(".js-second-swiper", {
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. 暫存所有原始 slides 的 HTML（outerHTML）
+  const swiperEl = document.getElementById('second-swiper');
+  const originalSlides = Array.from(
+    swiperEl.querySelectorAll('.circle-section__slide')
+  ).map(slide => slide.outerHTML);
+
+  // 2. 初始化 Swiper
+  const swiper = new Swiper('#second-swiper', {
     slidesPerView: 2,
     watchOverflow: true,
-    loop: false,
+    loop: true,
     spaceBetween: 24,
     navigation: {
-      prevEl: ".js-primary-swiper .circle-section__nav--prev",
-      nextEl: ".js-primary-swiper .circle-section__nav--next",
+      prevEl: '#second-swiper .circle-section__nav--prev',
+      nextEl: '#second-swiper .circle-section__nav--next',
     },
     breakpoints: {
-      // 手機版：auto + center，露 1.3 張
       0: {
-        slidesPerView: "auto",
+        slidesPerView: 'auto',
         centeredSlides: false,
         slidesOffsetBefore: 8,
       },
-      // 桌機版 ≥786px：一次 2 張、滑 2 張，左右各推 40px
-      786: {
+      768: {
+        slidesOffsetBefore: 24,
+      },
+      920: {
         slidesPerView: 2,
         slidesPerGroup: 2,
         centeredSlides: false,
-        spaceBetween: 24,
+        roundLengths: true,
+        spaceBetween: 48,
       },
     },
+  });
+
+  // 生活圈篩選功能
+  const filters = document.querySelectorAll('.circle-section__filter');
+  filters.forEach(filter => {
+    filter.addEventListener('click', e => {
+      e.preventDefault();
+
+      filters.forEach(f => f.classList.remove('is-active'));
+      filter.classList.add('is-active');
+
+      const selectedCat = filter.dataset.cat;
+      const filtered = (selectedCat === 'all')
+        ? originalSlides
+        : originalSlides.filter(html => html.includes(`data-cat="${selectedCat}"`));
+      if (swiper.params.loop) {
+        swiper.loopDestroy();
+      }
+      swiper.removeAllSlides();
+      swiper.appendSlide(filtered);
+      if (swiper.params.loop) {
+        swiper.loopCreate();
+      }
+      swiper.slideToLoop(0);
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.querySelector(".activities-section__grid");
+  const btn  = document.querySelector(".activities-section__toggle");
+
+  btn.addEventListener("click", () => {
+    const expanded = grid.classList.toggle("is-expanded");
+    btn.classList.toggle("expanded", expanded);
+    btn.firstChild.textContent = expanded ? "收起" : "查看更多";
   });
 });
 
