@@ -789,9 +789,6 @@ input[type="checkbox"] {
     }
 
     /* simple-form, register_1 */
-    .simple-form {
-        margin: 0;
-    }
 
     .register__group--last {
         margin-bottom: 20px;
@@ -823,6 +820,7 @@ input[type="checkbox"] {
     }
 
     .simple-form {
+        margin: 0;
         padding-top: 0;
     }
 }

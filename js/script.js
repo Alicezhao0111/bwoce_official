@@ -42,8 +42,7 @@ function initPasswordToggle() {
 
 // 全站 Modal
 function initModal() {
-  window.showModal = (message) => {
-    document.getElementById("modalMessage").innerHTML = message;
+  window.showModal = () => {
     document.getElementById("globalModal").style.display = "flex";
   };
   window.closeModal = () => {
