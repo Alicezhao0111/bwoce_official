@@ -58,7 +58,7 @@
           <span></span>
         </div>
       </div>
-      <a class="navbar-brand d-xl-none me-0" href="#">
+      <a class="navbar-brand d-xl-none me-0" href="index.html">
         <img class="me-0 ms-5" src="images/nav/nav_phone_logo.svg" alt="Logo">
       </a>
       <div class="d-flex gap-2 d-xl-none align-items-center">
@@ -247,7 +247,7 @@
             <!-- 分類選單 -->
             <div class="circle-section__filters-wrapper">
               <!-- 第一階段先隱藏 -->
-              <ul class="circle-section__filters d-none">
+              <ul class="circle-section__filters">
                 <li><a href="#" class="circle-section__filter is-active" data-cat="all">全部</a></li>
                 <li><a href="#" class="circle-section__filter" data-cat="sustain">永續生活圈</a></li>
                 <li><a href="#" class="circle-section__filter" data-cat="relief">解憂生活圈</a></li>
@@ -473,13 +473,18 @@
             </a>
           </div>
 
-            <button type="button" class="btn--link activities-section__toggle text--brown">
+          <button type="button" class="btn--link activities-section__toggle text--brown">
+            <span class="toggle-text toggle-text--more" data-i18n="activities.view_more">
               查看更多
-              <svg class="activities-section__toggle-icon" width="14" height="8" viewBox="0 0 14 8" fill="none">
-                <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
-              </svg>
-            </button>
-          </div>
+            </span>
+            <span class="toggle-text toggle-text--less" data-i18n="activities.collapse" hidden>
+              收起
+            </span>
+            <svg class="activities-section__toggle-icon" width="14" height="8" viewBox="0 0 14 8" fill="none">
+              <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" />
+            </svg>
+          </button>
+        </div>
       </section>
 
     </div>
@@ -524,40 +529,12 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const swiper = new Swiper('.js-hero-swiper', {
-        loop: true,
-        pagination: {
-          el: '.hero__pagination', clickable: true
-        },
-        lazy: true,
-        autoplay: { delay: 5000, disableOnInteraction: false },
-      });
-
-      function onSlideChange() {
-        const slide = swiper.slides[swiper.activeIndex];
-        const video = slide.querySelector('video');
-        swiper.slides.forEach(s => s.classList.remove('hero__slide--masked'));
-        if (video) {
-          swiper.autoplay.stop();
-          slide.classList.add('hero__slide--masked');
-          video.currentTime = 0;
-          video.play();
-          video.onended = () => swiper.slideNext();
-        } else {
-          swiper.autoplay.start();
-        }
-      }
-
-      swiper.on('slideChange', onSlideChange);
-      onSlideChange();
-    });
-  </script>
-  <script src="./js/vendors/aos.js"></script>
-  <script src="./js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/vendors/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="./js/script.js" defer></script>
+  <script src="./js/swiper.js" defer></script>
+  <script src="./js/index.js" defer></script>
 </body>
 
 </html>

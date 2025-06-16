@@ -1,7 +1,8 @@
+// 密碼一致性
 document.addEventListener('DOMContentLoaded', function () {
     function setupPasswordValidation(formId) {
         const form = document.getElementById(formId);
-        if (!form) return; // 防呆，避免找不到該 form
+        if (!form) return;
 
         const password = form.querySelector('#password');
         const confirmPassword = form.querySelector('#confirmPassword');
@@ -17,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 在這裡列出你的表單 id
     setupPasswordValidation('register_form');
     setupPasswordValidation('password_reset_form');
 });
