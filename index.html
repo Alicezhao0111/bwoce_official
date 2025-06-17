@@ -98,38 +98,46 @@
   <main>
     <div class="index">
       <section class="hero">
-        <div class="hero__swiper js-hero-swiper swiper">
-          <div class="swiper-wrapper">
-            <!-- 影片 -->
-            <div class="swiper-slide hero__slide">
-              <video class="hero__media" autoplay muted loop playsinline>
-                <source src="./video_tablet.mp4" type="video/mp4" />
-              </video>
-              <div class="hero__overlay"></div>
-              <div class="hero__caption">
-                <span class="hero__caption-line">
-                  在人與人 心與心之間
-                </span>
-                <span class="hero__caption-line">
-                  讓每一份善意 都長出改變的力量
-                </span>
-              </div>
-            </div>
-            <!-- 圖片 -->
-            <div class="swiper-slide hero__slide">
-              <img class="hero__media" src="./images/demo.jpg" alt="" />
-              <div class="hero__overlay"></div>
-              <div class="hero__caption">
-                <span class="hero__caption-line">
-                  福智文教基金會
-                </span>
-                <span class="hero__caption-line">
-                  讓每一份善意 都長出改變的力量
-                </span>
-              </div>
-            </div>
+        <!-- 影片容器 -->
+        <div class="hero__video-container hero__slide--masked">
+          <video class="hero__media" autoplay muted loop playsinline>
+            <source src="./videos/video_tablet.mp4" type="video/mp4" />
+          </video>
+          <div class="hero__overlay"></div>
+          <div class="hero__caption">
+            <span class="hero__caption-line">在人與人 心與心之間</span>
+            <span class="hero__caption-line">讓每一份善意 都長出改變的力量</span>
           </div>
-          <div class="swiper-pagination hero__pagination"></div>
+        </div>
+
+        <!-- 圖片容器 (影片與圖片擇一顯示) -->
+        <div class="hero__images-container d-none">
+          <div class="js-hero-images-swiper swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="hero__media" src="./images/demo.jpg" alt="" />
+                <div class="hero__caption">
+                  <span class="hero__caption-line">福智文教基金會</span>
+                  <span class="hero__caption-line">讓每一份善意 都長出改變的力量</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img class="hero__media" src="./images/demo.png" alt="" />
+                <div class="hero__caption">
+                  <span class="hero__caption-line">福智文教基金會</span>
+                  <span class="hero__caption-line">讓每一份善意 都長出改變的力量</span>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img class="hero__media" src="./images/demo.jpg" alt="" />
+                <div class="hero__caption">
+                  <span class="hero__caption-line">福智文教基金會</span>
+                  <span class="hero__caption-line">讓每一份善意 都長出改變的力量</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination hero__images-pagination"></div>
+          </div>
         </div>
       </section>
       <section class="stats">
@@ -149,22 +157,22 @@
         <div class="stats__grid">
           <div class="stats__item stats__item--yellow">
             <div class="stats__title text--brown">教師生命成長營</div>
-            <div class="stats__subtitle text--brown">參加人數</div>
+            <div class="stats__subtitle text--brown">1993-2023 參加人數</div>
             <div class="stats__number" data-target="28000">0</div>
           </div>
           <div class="stats__item stats__item--green">
             <div class="stats__title text--brown">大專生命成長營</div>
-            <div class="stats__subtitle text--brown">參加人數</div>
+            <div class="stats__subtitle text--brown">1998-2023 參加人數</div>
             <div class="stats__number" data-target="55000">0</div>
           </div>
           <div class="stats__item stats__item--green">
             <div class="stats__title text--brown">企業生命成長營</div>
-            <div class="stats__subtitle text--brown">參加人數</div>
+            <div class="stats__subtitle text--brown">2001~ 參加人數</div>
             <div class="stats__number" data-target="25600">0</div>
           </div>
           <div class="stats__item stats__item--yellow">
             <div class="stats__title text--brown">儒家經典與生活論壇</div>
-            <div class="stats__subtitle text--brown">參加人數</div>
+            <div class="stats__subtitle text--brown">2022-2023 參加人數</div>
             <div class="stats__number" data-target="471">0</div>
           </div>
         </div>

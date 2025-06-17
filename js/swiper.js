@@ -1,36 +1,18 @@
 // index
 function initHeroSwiper() {
-  const swiper = new Swiper(".js-hero-swiper", {
-    loop: true,
-    pagination: {
-      el: ".hero__pagination",
-      clickable: true,
-    },
-    lazy: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-  });
-
-  function onSlideChange() {
-    const slide = swiper.slides[swiper.activeIndex];
-    const video = slide.querySelector("video");
-    swiper.slides.forEach((s) => s.classList.remove("hero__slide--masked"));
-
-    if (video) {
-      swiper.autoplay.stop();
-      slide.classList.add("hero__slide--masked");
-      video.currentTime = 0;
-      video.play();
-      video.onended = () => swiper.slideNext();
-    } else {
-      swiper.autoplay.start();
-    }
-  }
-
-  swiper.on("slideChange", onSlideChange);
-  onSlideChange();
+    new Swiper(".js-hero-images-swiper", {
+      slidesPerView: 1,
+      loop: true,
+      pagination: {
+        el: ".hero__images-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      lazy: true,
+    });
 }
 
 function initPrimarySwiper() {
