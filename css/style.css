@@ -1973,10 +1973,8 @@ input[type="checkbox"] {
     gap: 0.5rem;
 }
 
-.icon--md {
-    flex-shrink: 0;
-    width: 30px;
-    height: 30px;
+.activity-detail__text {
+    font-size: var(--font-20);
 }
 
 .activity-detail__calendar-link,
@@ -1984,6 +1982,8 @@ input[type="checkbox"] {
     background-color: inherit;
     font-size: var(--font-20);
     color: #996520;
+    padding: 0;
+    white-space: nowrap;
     text-decoration: underline;
 }
 
@@ -2005,10 +2005,14 @@ input[type="checkbox"] {
         padding: 0 1rem;
     }
 
-    .icon--md {
-        width: 20px;
-        height: 20px;
-    }
+    .activity-detail__text {
+    font-size: var(--font-14);
+}
+
+    .activity-detail__calendar-link,
+.activity-detail__location-link {
+    font-size: var(--font-14);
+}
 }
 
 .pill-label {
