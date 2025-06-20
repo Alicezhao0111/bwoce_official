@@ -107,7 +107,7 @@
             <p class="circle-page__description text__article text--black">
                 對寵萌除關愛以外，還需許多的學習與教育，進入這個同樂會，有獸醫師、營養師、中醫師的分享，會員們的經驗談，可幫助寵萌照顧的所有問題，更可透過同樂會活動的機會認識很多寵萌家人，聯結同好的情誼。
             </p>
-
+            <!--  carousel -->
             <div class="circle-page__carousel swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -127,9 +127,9 @@
         <section class="circle-page__event">
             <h2 class="title title--square" style="--ts-brush-w: 230px;
                 --ts-brush-h: 106px;">
-                <span>主要活動</span>
+                <span>主要課程</span>
             </h2>
-            <section class="cards-section">
+            <div class="cards-section">
                 <div id="circle-event-swiper"
                     class="circle-section__swiper circle-section__swiper--primary swiper js-primary-swiper">
                     <div class="swiper-wrapper">
@@ -232,25 +232,71 @@
                                 </div>
                             </a>
                         </div>
-
-
-
-                        <!-- 更多 slides… -->
                     </div>
 
-                    <!-- 左右按鈕（維持原路徑與 class） -->
                     <button class="swiper-button-prev circle-section__nav circle-section__nav--prev"></button>
                     <button class="swiper-button-next circle-section__nav circle-section__nav--next"></button>
                 </div>
-            </section>
-
+            </div>
         </section>
 
-        <section class="circle-page__latest">
+        <section class="circle-page__news">
             <h2 class="title title--square" style="--ts-brush-w: 230px;
                 --ts-brush-h: 106px;">
                 <span>最新文章</span>
             </h2>
+            <div class="circle-page__news-card">
+                <!-- 標題列 -->
+                <div class="circle-page__news-header">
+                    <span class="circle-page__news-title text--black">最新消息</span>
+                    <div class="circle-page__news-meta-label">
+                        發布時間<br>發布者
+                    </div>
+                    <img src="images/icon/news_arrow.svg" alt="" class="circle-page__news-arrow invisible">
+                </div>
+
+                <ul class="circle-page__news-list">
+                    <!-- First -->
+                    <li class="circle-page__news-item">
+                        <a href="/activity_article.html" class="circle-page__news-link">
+                            <div class="circle-page__news-text">
+                                這個好好吃?可以跟毛孩們分享嗎？
+                            </div>
+                            <div class="circle-page__news-meta">
+                                <time datetime="2025-06-11">2025/06/11</time>
+                                <span class="circle-page__news-author">陳小華</span>
+                            </div>
+                            <img src="images/icon/news_arrow.svg" alt="" class="circle-page__news-arrow">
+                        </a>
+                    </li>
+                    <!-- Second -->
+                    <li class="circle-page__news-item">
+                        <a href="/activity_article.html" class="circle-page__news-link">
+                            <div class="circle-page__news-text">
+                                福智非營利幼兒園－各園所及招生資訊
+                            </div>
+                            <div class="circle-page__news-meta">
+                                <time datetime="2025-06-02">2025/06/02</time>
+                                <span class="circle-page__news-author">陳小華</span>
+                            </div>
+                            <img src="images/icon/news_arrow.svg" alt="" class="circle-page__news-arrow">
+                        </a>
+                    </li>
+                    <!-- Third -->
+                    <li class="circle-page__news-item">
+                        <a href="/activity_article.html" class="circle-page__news-link">
+                            <div class="circle-page__news-text">
+                                第十屆儒學營【千古風行思無邪】報名開始囉～
+                            </div>
+                            <div class="circle-page__news-meta">
+                                <time datetime="2025-06-02">2025/06/02</time>
+                                <span class="circle-page__news-author">陳小華</span>
+                            </div>
+                            <img src="images/icon/news_arrow.svg" alt="" class="circle-page__news-arrow">
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </section>
 
         <section class="circle-page__video">
