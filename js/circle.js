@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: "auto",
         slidesPerGroup: 1,
         centeredSlides: false,
-        spaceBetween: 4,
-        slidesOffsetBefore: 0,
+        spaceBetween: 24,
+        slidesOffsetBefore: 10,
       },
       1120: {
         slidesOffsetBefore: 8,
